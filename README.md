@@ -50,9 +50,8 @@ For the following objectives, consider **structured instances with a single robo
 2.  *In addition to the previous modification, extend movement actions to also allow diagonal movement*
 
     -   Apply your modifications to the direct encoding, specifically the [action
-        theory](https://github.com/potassco/asprilo-encodings/blob/develop/m/action-M.lp): edit the
-        goal condition such that all shelves that contain an ordered product can be visited at an
-        arbitrary point in time (instead of the last time step).
+        theory](https://github.com/potassco/asprilo-encodings/blob/develop/m/action-M.lp): edit
+        `direction/1` and `nextto/3` to incorporate diagonal adjacency.
     -   Run your modified encoding on instance [`instances/x11_y6_n66_r1_s8_ps1_pr8_u8_o8_N001.lp`](instances/x11_y6_n66_r1_s8_ps1_pr8_u8_o8_N001.lp)
 
         via
