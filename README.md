@@ -35,7 +35,7 @@ For the following objectives, consider **structured instances with a single robo
 
         via
 
-        ```shell
+        ```bash
         clingo --out-atomf='%s.' -c horizon=15 \
         $ENCODINGS/m/{action-M.lp,goal-M-mod.lp,output-M.lp} \
         instances/x11_y6_n66_r1_s8_ps1_pr8_u8_o8_N001.lp
@@ -56,7 +56,7 @@ For the following objectives, consider **structured instances with a single robo
 
         via
 
-        ```shell
+        ```bash
         clingo --out-atomf='%s.' -c horizon=10 \
         $ENCODINGS/m/{action-M-mod.lp,goal-M-mod.lp,output-M.lp} \
         instances/x11_y6_n66_r1_s8_ps1_pr8_u8_o8_N001.lp
@@ -88,10 +88,10 @@ For the following objectives, consider **structured instances with multiple robo
 
     via
 
-    ```shell
+    ```bash
     clingo --out-atomf='%s.' -c horizon=20 \
     $ENCODINGS/m/{action-M-mod.lp,goal-M.lp,output-M.lp} \
-    instances/x11_y6_n66_r1_s8_ps1_pr8_u8_o8_N001.lp
+    instances/x11_y6_n66_r8_s8_ps1_pr8_u8_o8_N001.lp
     ```
 
     where
@@ -139,8 +139,8 @@ For the following objectives, consider **structured instances with multiple robo
 
         via
 
-        ```shell
-        clingo --out-atomf='%s.' -c horizon=25 - \
+        ```bash
+        clingo --out-atomf='%s.' -c horizon=25 \
         $ENCODINGS/control/{sides.lp, highways.lp} \
         $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp,output-MPPD.lp} \
         instances/x9_y6_n54_r4_s8_ps2_pr8_u8_o8_N001.lp
@@ -150,7 +150,7 @@ For the following objectives, consider **structured instances with multiple robo
 
         - `$ENCODINGS` is an environment variable that holds the path to your downloaded (or cloned)
           [development branch of asprilo-encodings](https://github.com/potassco/asprilo-encodings/tree/develop)
-        - `$ENCODINGS/control/sides.lp` is your encoding of 
+        - `$ENCODINGS/control/sides.lp` is your encoding of the side constraints
 
 2.  *Assign robots to shelves and picking stations on the same side*
 
@@ -165,7 +165,7 @@ For the following objectives, consider **structured instances with multiple robo
             half", resp., throughout the whole plan execution.
     -   Solution template
 
-        ``` prolog
+        ```prolog
         #include "../input.lp".
 
         % Aux predicates to represent products that are ordered and shelved, resp.
@@ -205,7 +205,7 @@ For the following objectives, consider **structured instances with multiple robo
 
         via
 
-        ```shell
+        ```bash
         clingo --out-atomf='%s.' -V0 \
         $ENCODINGS/control/assign-a-sides.lp \
         instances/x9_y6_n54_r4_s8_ps2_pr8_u8_o8_N001.lp | \
@@ -256,7 +256,7 @@ To test and showcase your solution, consider instance [`instances/x7_y6_n42_r3_s
 
 -   Your energy management encoding may be structured as follows:
 
-    ``` prolog
+    ```prolog
     % - Input conversion -------------------------------------------------------------------------------
     %   Map init(object(robot, R), value(energy, E)) to internal representation,
     %   .e.g energy(Robot,EnergyLevel,TimeStep)
@@ -292,12 +292,13 @@ To test and showcase your solution, consider instance [`instances/x7_y6_n42_r3_s
 
 -   Run your expanded encoding (including the highway constraints, and with `horizon=30`) as
 
-    ```shell
+    ```bash
     clingo -c horizon=30 \
     $ENCODINGS/control/{energy.lp,highways.lp} \
     $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp} \
     instances/x7_y6_n42_r3_s6_ps1_pr12_u24_o3_nrg_N001.lp
     ```
+
     where
 
     - `$ENCODINGS` is an environment variable that holds the path to your downloaded (or cloned)
