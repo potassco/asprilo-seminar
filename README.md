@@ -141,7 +141,7 @@ For the following objectives, consider **structured instances with multiple robo
 
         ```bash
         clingo --out-atomf='%s.' -c horizon=25 \
-        $ENCODINGS/control/{sides.lp, highways.lp} \
+        $ENCODINGS/control/{sides.lp,highways.lp} \
         $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp,output-MPPD.lp} \
         instances/x9_y6_n54_r4_s8_ps2_pr8_u8_o8_N001.lp
         ```
@@ -295,7 +295,7 @@ To test and showcase your solution, consider instance [`instances/x7_y6_n42_r3_s
     ```bash
     clingo -c horizon=30 \
     $ENCODINGS/control/{energy.lp,highways.lp} \
-    $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp} \
+    $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp,output-MPPD.lp} \
     instances/x7_y6_n42_r3_s6_ps1_pr12_u24_o3_nrg_N001.lp
     ```
 
