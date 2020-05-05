@@ -36,7 +36,8 @@ For the following objectives, consider **structured instances with a single robo
         via
 
         ```bash
-        clingo --out-atomf='%s.' -c horizon=15 \
+        clingo --out-atomf='%s.' -V0 \
+        -c horizon=15 \
         $ENCODINGS/m/{action-M.lp,goal-M-mod.lp,output-M.lp} \
         instances/x11_y6_n66_r1_s8_ps1_pr8_u8_o8_N001.lp
         ```
@@ -57,7 +58,8 @@ For the following objectives, consider **structured instances with a single robo
         via
 
         ```bash
-        clingo --out-atomf='%s.' -c horizon=10 \
+        clingo --out-atomf='%s.' -V0 \
+        -c horizon=10 \
         $ENCODINGS/m/{action-M-mod.lp,goal-M-mod.lp,output-M.lp} \
         instances/x11_y6_n66_r1_s8_ps1_pr8_u8_o8_N001.lp
         ```
@@ -89,7 +91,8 @@ For the following objectives, consider **structured instances with multiple robo
     via
 
     ```bash
-    clingo --out-atomf='%s.' -c horizon=20 \
+    clingo --out-atomf='%s.' -V0 \
+    -c horizon=20 \
     $ENCODINGS/m/{action-M-mod.lp,goal-M.lp,output-M.lp} \
     instances/x11_y6_n66_r8_s8_ps1_pr8_u8_o8_N001.lp
     ```
@@ -140,7 +143,8 @@ For the following objectives, consider **structured instances with multiple robo
         via
 
         ```bash
-        clingo --out-atomf='%s.' -c horizon=25 \
+        clingo --out-atomf='%s.' -V0 \
+        -c horizon=25 \
         $ENCODINGS/control/{sides.lp,highways.lp} \
         $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp,output-MPPD.lp} \
         instances/x9_y6_n54_r4_s8_ps2_pr8_u8_o8_N001.lp
@@ -210,7 +214,9 @@ For the following objectives, consider **structured instances with multiple robo
         $ENCODINGS/control/assign-a-sides.lp \
         instances/x9_y6_n54_r4_s8_ps2_pr8_u8_o8_N001.lp | \
         head -n 1 | \
-        clingo --out-atomf='%s.' -c horizon=40 - \
+        clingo --out-atomf='%s.' -V0 \
+        -c horizon=40 \
+        - \
         $ENCODINGS/control/{control-abc.lp,highways.lp} \
         $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp,output-MPPD.lp} \
         instances/x9_y6_n54_r4_s8_ps2_pr8_u8_o8_N001.lp
@@ -293,7 +299,8 @@ To test and showcase your solution, consider instance [`instances/x7_y6_n42_r3_s
 -   Run your expanded encoding (including the highway constraints, and with `horizon=30`) as
 
     ```bash
-    clingo -c horizon=30 \
+    clingo --out-atomf='%s.' -V0 \
+    -c horizon=30 \
     $ENCODINGS/control/{energy.lp,highways.lp} \
     $ENCODINGS/abc/{action-MPP.lp,goal-D-a.lp,output-MPPD.lp} \
     instances/x7_y6_n42_r3_s6_ps1_pr12_u24_o3_nrg_N001.lp
